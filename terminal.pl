@@ -6,7 +6,7 @@ $DBG = 0;
 $user = getlogin;
 
 if ($DBG) {
-  $res = `ps -fu $user | grep -c gnome-terminal`;  
+  $res = `ps -fu $user | grep -c gnome-terminal`;
   open(FILE, ">>/home/genadyp/dbg.log") || die "$!";
   print FILE $res;
   print FILE `ps -fu $user | grep gnome-terminal`;
@@ -17,7 +17,7 @@ if ($DBG) {
 #   whole system expression in if condition
 #   grep call itself
 if (`ps -fu $user | grep -c gnome-terminal` < 3) {
-  system("gnome-terminal && cd /home/genadyp");
+  system("cd /home/genadyp/ && gnome-terminal");
 } else {
   system("wmctrl -a Terminal");
 }
